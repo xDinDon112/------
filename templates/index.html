@@ -14,7 +14,7 @@
 <body>
   <a class="skip-link" href="#main">К содержанию</a>
   <header id="top" class="site-header">
-    <a class="brand" href="#top" aria-label="Триумф, начало страницы">{{ team.name }}<span>.</span></a>
+    <a class="brand" href="#top" aria-label="Триумф, начало страницы">{{ team.name }}</a>
     <nav class="desktop-nav" aria-label="Основная навигация">
       {% include 'nav_links.html' %}
       <a href="#contacts">Связаться</a>
@@ -36,10 +36,6 @@
           <p class="mobile-label">IT TEAM / VOLGA.TOP {{ team.year }}</p>
           <h1 id="hero-title"><span>Мы создаём.</span><span>Мы меняем.</span><span>Мы достигаем.</span></h1>
           <p class="hero-description">Пять участников. Одна команда. Общая цель — создавать технологии и воплощать идеи в жизнь.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#team">Наша команда</a>
-            <a class="button button-secondary" href="#projects">Наши проекты</a>
-          </div>
         </div>
         <picture class="hero-art">
           <source media="(max-width: 650px)" srcset="{% static 'images/hero-mobile.svg' %}">
