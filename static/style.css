@@ -120,7 +120,7 @@ picture { display: block; }
 .mobile-menu a:hover,
 .footer-links a:hover { color: var(--blue-dark); text-decoration: underline; }
 
-.mobile-menu, .mobile-label, .mobile-title, .mobile-contact { display: none; }
+.mobile-menu, .mobile-title { display: none; }
 
 .hero {
   position: relative;
@@ -167,44 +167,6 @@ body { overflow-x: clip; }
   font-size: 20px;
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 46px;
-}
-
-.button {
-  display: inline-flex;
-  min-height: 56px;
-  align-items: center;
-  justify-content: center;
-  padding: 11px 26px;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 650;
-  text-align: center;
-  text-decoration: none;
-}
-
-.button-primary {
-  min-width: 190px;
-  background: var(--blue);
-  color: var(--white);
-}
-
-.button-primary:hover { background: var(--blue-dark); }
-
-.button-secondary {
-  min-width: 170px;
-  border-color: #dce3ed;
-  background: var(--white);
-  color: #344054;
-}
-
-.button-secondary:hover { border-color: var(--blue); color: var(--blue-dark); }
-
 .hero-art img { width: 100%; height: auto; }
 
 .stats {
@@ -244,8 +206,7 @@ body { overflow-x: clip; }
   scroll-margin-top: 24px;
 }
 
-.section h2,
-.mobile-contact h2 {
+.section h2 {
   font-size: clamp(32px, 3.4vw, 42px);
   font-weight: 700;
   letter-spacing: -.025em;
@@ -565,21 +526,12 @@ body { overflow-x: clip; }
 
 @media (max-width: 650px) {
   .container { width: calc(100% - 48px); }
-  .mobile-label {
-    display: block;
-    margin-bottom: 14px;
-    color: var(--blue);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .09em;
-    text-transform: uppercase;
-  }
   .brand { font-size: 22px; }
 
   .hero { margin-top: 50px; }
   .hero::before { display: none; }
   .hero-row { grid-template-columns: 1fr; gap: 28px; padding-right: 0; }
-  .hero-copy .mobile-label { margin-bottom: 31px; }
+  .hero-copy { margin-bottom: 31px; }
   .hero-copy h1 { font-size: clamp(33px, 10.78vw, 42px); letter-spacing: -.03em; }
   .hero-description { margin-top: 26px; font-size: 16px; line-height: 1.65; }
   .hero-actions { margin-top: 27px; }
@@ -644,19 +596,6 @@ body { overflow-x: clip; }
   .project-info h3 { margin-bottom: 5px; font-size: 18px; }
 
   .site-footer { margin-top: 42px; padding-block: 0 28px; background: var(--surface); }
-
-  .mobile-contact {
-    display: block;
-    padding: 38px 23px 25px;
-    border-radius: 20px;
-    background: var(--ink);
-    color: var(--white);
-  }
-
-  .mobile-contact .mobile-label { color: #afc4ff; }
-  .mobile-contact h2 { max-width: 266px; font-size: 32px; }
-  .mobile-contact p:not(.mobile-label) { margin-block: 19px; color: #c7d2e5; font-size: 14px; }
-  .mobile-contact .button { min-width: 175px; min-height: 48px; font-size: 14px; }
 
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
