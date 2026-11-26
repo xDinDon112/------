@@ -9,14 +9,16 @@
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python manage.py runserver 127.0.0.1:8001
+
 На Windows откройте PowerShell в папке с manage.py.
 
 py -3 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe manage.py runserver 127.0.0.1:8001
+
 Откройте локальный сайт. Порт 8001 выбран для отдельного запуска рядом с черновиком «Вектор». Сервер останавливается сочетанием Ctrl+C в терминале. Для первого скачивания зависимостей нужен интернет.
 
-Запуск в Docker для жюри
+## Запуск в Docker для жюри
 Откройте терминал в корне проекта, где находятся manage.py, Dockerfile и compose.yml. Нужны запущенный Docker и интернет для первой сборки. Для варианта с одной командой нужен также Docker Compose. Python и зависимости установятся внутри контейнера.
 
 Сборка и запуск через Dockerfile
