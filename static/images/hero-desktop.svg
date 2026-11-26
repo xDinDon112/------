@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="820 190 500 500"><defs><linearGradient id="blueGlow" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#DCE7FF" /><stop offset="1" stop-color="#EEF3FF" />
+  </linearGradient>
+  <linearGradient id="orb" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#315EFB" /><stop offset="1" stop-color="#83A2FF" />
+  </linearGradient>
+  </defs><rect x="820" y="190" width="500" height="500" rx="34" fill="url(#blueGlow)" stroke="#E3EAFA" stroke-width="1" />
+<circle cx="1070" cy="440" r="150" fill="url(#orb)" />
+<circle cx="1070" cy="440" r="108" fill="none" stroke="#FFFFFF" stroke-opacity=".65" stroke-width="1.5" />
+<circle cx="1070" cy="440" r="68" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="1.5" />
+<path d="M930 440 C980 300 1160 300 1210 440 C1160 580 980 580 930 440Z" fill="none" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="2" />
+<circle cx="1200" cy="300" r="13" fill="#315EFB" /><circle cx="930" cy="570" r="9" fill="#8DAAFF" />
+<text x="1070" y="448" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="0">Т</text>
+</svg>

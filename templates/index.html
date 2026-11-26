@@ -1,0 +1,212 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if team.draft %}<meta name="robots" content="noindex">{% endif %}
+  <meta name="description" content="Триумф — команда из пяти участников отборочного этапа «Волга.ТОП» 2026.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>{{ team.name }} · Волга.ТОП {{ team.year }}</title>
+  <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <header id="top" class="site-header">
+    <a class="brand" href="#top" aria-label="Триумф, начало страницы">{{ team.name }}<span>.</span></a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      {% include 'nav_links.html' %}
+      <a href="#contacts">Связаться</a>
+    </nav>
+    <details class="mobile-menu">
+      <summary aria-label="Меню"><span aria-hidden="true"></span></summary>
+      <nav aria-label="Основная навигация">
+        {% include 'nav_links.html' %}
+        <a href="#skills">Навыки</a>
+        <a href="#contacts">Связаться</a>
+      </nav>
+    </details>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-row">
+        <div class="hero-copy">
+          <p class="mobile-label">IT TEAM / VOLGA.TOP {{ team.year }}</p>
+          <h1 id="hero-title"><span>Мы создаём.</span><span>Мы меняем.</span><span>Мы достигаем.</span></h1>
+          <p class="hero-description">Пять участников. Одна команда. Общая цель — создавать технологии и воплощать идеи в жизнь.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#team">Наша команда</a>
+            <a class="button button-secondary" href="#projects">Наши проекты</a>
+          </div>
+        </div>
+        <picture class="hero-art">
+          <source media="(max-width: 650px)" srcset="{% static 'images/hero-mobile.svg' %}">
+          <img src="{% static 'images/hero-desktop.svg' %}" alt="" width="500" height="500" fetchpriority="high">
+        </picture>
+      </div>
+      <dl class="stats">
+        <div><dt>Участников</dt><dd>{{ team.members|length|stringformat:"02d" }}</dd></div>
+        <div><dt>Команда</dt><dd>01</dd></div>
+        <div><dt>Идей</dt><dd aria-label="Без ограничений">∞</dd></div>
+      </dl>
+    </section>
+
+    <section id="about" class="section about" aria-labelledby="about-title">
+      <p class="mobile-label">О команде</p>
+      <div class="about-intro">
+        <h2 id="about-title">Сильные идеи рождаются вместе.</h2>
+        <p>{{ team.about }}</p>
+      </div>
+      <div class="grid-three values">
+        <article class="card value-card">
+          <h3>Любопытство</h3>
+          <p>Изучаем новое и задаём вопросы.</p>
+        </article>
+        <article class="card value-card">
+          <h3>Командность</h3>
+          <p>Двигаемся к общей цели вместе.</p>
+        </article>
+        <article class="card value-card">
+          <h3>Результат</h3>
+          <p>Превращаем идеи в работающие решения.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="team" class="section team" aria-labelledby="team-title">
+      <p class="mobile-label">Участники</p>
+      <h2 id="team-title"><span class="desktop-title">Пять ролей. Один результат.</span><span class="mobile-title">Наша команда.</span></h2>
+      <p class="section-description">Познакомьтесь с людьми, которые создают {{ team.name }}.</p>
+      {% if selected != 'all' %}
+      <p class="filter-result">Навык «{{ selected_label }}», показано {{ members|length }} из {{ team.members|length }}. <a href="{% url 'home' %}#team">Все участники</a></p>
+      {% endif %}
+      {% if members %}
+      <ul class="members" aria-label="Участники команды">
+        {% for member in members %}
+        <li class="card member-card">
+          {% if member.photo %}
+          <img class="avatar" src="{% static member.photo %}" alt="" width="184" height="145" loading="lazy">
+          {% else %}
+          <picture class="avatar">
+            <source media="(max-width: 650px)" srcset="{% static 'images/avatar-mobile.svg' %}">
+            <img src="{% static 'images/avatar-desktop.svg' %}" width="184" height="145" alt="" loading="lazy">
+          </picture>
+          {% endif %}
+          <div class="member-info">
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.role }}</p>
+            {% if member.group %}<p>{{ member.group }}</p>{% endif %}
+            {% if member.skill_labels %}<p class="member-skills">{{ member.skill_labels|join:" · " }}</p>{% endif %}
+            {% with person_contact=member.contact|default:team.contact %}
+            {% if person_contact %}<a class="member-contact" href="{{ person_contact.url }}">{{ person_contact.label }}</a>{% endif %}
+            {% endwith %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="section-description">С этим навыком пока нет участников в списке.</p>
+      {% endif %}
+    </section>
+
+    <section id="skills" class="section skills" aria-labelledby="skills-title">
+      <p class="mobile-label">Наши навыки</p>
+      <h2 id="skills-title"><span class="desktop-title">Инструменты для больших идей.</span><span class="mobile-title">Наш инструментарий.</span></h2>
+      <p class="section-description">Языки, инструменты и практики, которые используем в этом проекте.</p>
+      <div class="grid-three skills-grid">
+        <article class="card skill-card">
+          <h3>Языки программирования</h3>
+          <ul class="tags">
+            <li><a href="{% url 'home' %}?skill=python#team">Python</a></li>
+          </ul>
+        </article>
+        <article class="card skill-card">
+          <h3>Инструменты и технологии</h3>
+          <ul class="tags">
+            <li><a href="{% url 'home' %}?skill=django#team">Django</a></li>
+            <li><a href="{% url 'home' %}?skill=frontend#team">HTML и CSS</a></li>
+            <li><a href="{% url 'home' %}?skill=design#team">Figma</a></li>
+          </ul>
+        </article>
+        <article class="card skill-card">
+          <h3>Практики</h3>
+          <ul class="tags">
+            <li><span>Командная работа</span></li>
+            <li><span>Проектирование</span></li>
+            <li><a href="{% url 'home' %}?skill=testing#team">Тестирование</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects" aria-labelledby="projects-title">
+      <p class="mobile-label">Проекты</p>
+      <h2 id="projects-title"><span class="desktop-title">От идеи — к реализации.</span><span class="mobile-title">Наши проекты.</span></h2>
+      <p class="section-description">Наши работы и идеи, которые хотим воплотить.</p>
+      <div class="grid-three projects-grid">
+        {% for project in projects %}
+        <article class="card project-card">
+          <p class="project-cover">{% if project.status == 'Идея' %}IDEA{% else %}PROJECT{% endif %} {{ forloop.counter|stringformat:"02d" }}</p>
+          <div class="project-info">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            {% if project.details %}
+            <details class="project-details">
+              <summary>Подробнее <span aria-hidden="true">↗</span></summary>
+              <p>{{ project.details }}</p>
+            </details>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacts" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-lead">
+          <a class="brand footer-brand" href="#top">{{ team.name }}</a>
+          <p>Команда из пяти человек.<br>Идеи, технологии и общий результат.</p>
+          <div id="contact-links" class="contact-links">
+            <h2>Связаться с командой</h2>
+            <p>Telegram команды</p>
+            {% if team.contact %}<a href="{{ team.contact.url }}">{{ team.contact.label }}</a>{% else %}<span>Ссылка пока не добавлена</span>{% endif %}
+            <p>GitVerse</p>
+            {% if team.repository %}<a href="{{ team.repository }}">Репозиторий команды</a>{% else %}<span>Ссылка пока не добавлена</span>{% endif %}
+          </div>
+        </div>
+        <nav class="footer-links" aria-label="Навигация в подвале">
+          <h2>Навигация</h2>
+          <a href="#top">Главная</a>
+          <a href="#about">О команде</a>
+          <a href="#team">Участники</a>
+          <a href="#skills">Наши навыки</a>
+          <a href="#projects">Проекты</a>
+        </nav>
+        <nav class="footer-links" aria-label="О команде">
+          <h2>Команда</h2>
+          <a href="#team">Пять участников</a>
+          <a href="#team">Роли и направления</a>
+          <a href="#about">Наш подход</a>
+          <a href="#projects">Достижения</a>
+        </nav>
+        <nav class="footer-links" aria-label="Материалы команды">
+          <h2>Материалы</h2>
+          <a href="#projects">Проекты</a>
+          {% if team.repository %}<a href="{{ team.repository }}">GitVerse</a>{% else %}<a href="#contact-links">GitVerse</a>{% endif %}
+          <a href="#contact-links">Контакты</a>
+          <a href="{{ team.event_url }}">О хакатоне</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© {{ team.year }} {{ team.name }}. · VOLGA.TOP</p>
+        <p>Сайт команды · Все права защищены</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
