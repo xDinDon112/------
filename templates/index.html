@@ -33,7 +33,6 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-row">
         <div class="hero-copy">
-          <p class="mobile-label">IT TEAM / VOLGA.TOP {{ team.year }}</p>
           <h1 id="hero-title"><span>Мы создаём.</span><span>Мы меняем.</span><span>Мы достигаем.</span></h1>
           <p class="hero-description">Пять участников. Одна команда. Общая цель — создавать технологии и воплощать идеи в жизнь.</p>
         </div>
@@ -50,7 +49,6 @@
     </section>
 
     <section id="about" class="section about" aria-labelledby="about-title">
-      <p class="mobile-label">О команде</p>
       <div class="about-intro">
         <h2 id="about-title">Сильные идеи рождаются вместе.</h2>
         <p>{{ team.about }}</p>
@@ -72,7 +70,6 @@
     </section>
 
     <section id="team" class="section team" aria-labelledby="team-title">
-      <p class="mobile-label">Участники</p>
       <h2 id="team-title"><span class="desktop-title">Пять ролей. Один результат.</span><span class="mobile-title">Наша команда.</span></h2>
       <p class="section-description">Познакомьтесь с людьми, которые создают {{ team.name }}.</p>
       {% if selected != 'all' %}
@@ -108,7 +105,6 @@
     </section>
 
     <section id="skills" class="section skills" aria-labelledby="skills-title">
-      <p class="mobile-label">Наши навыки</p>
       <h2 id="skills-title"><span class="desktop-title">Инструменты для больших идей.</span><span class="mobile-title">Наш инструментарий.</span></h2>
       <p class="section-description">Языки, инструменты и практики, которые используем в этом проекте.</p>
       <div class="grid-three skills-grid">
@@ -138,7 +134,6 @@
     </section>
 
     <section id="projects" class="section projects" aria-labelledby="projects-title">
-      <p class="mobile-label">Проекты</p>
       <h2 id="projects-title"><span class="desktop-title">От идеи — к реализации.</span><span class="mobile-title">Наши проекты.</span></h2>
       <p class="section-description">Наши работы и идеи, которые хотим воплотить.</p>
       <div class="grid-three projects-grid">
@@ -170,7 +165,7 @@
           <div id="contact-links" class="contact-links">
             <h2>Связаться с командой</h2>
             <p>Telegram канал команды</p>
-            {% if team.contact %}<a href="{{ https://t.me/TRIUMPH_DREAMTEAM }}">{{ team.contact.label }}</a>{% else %}<span>https://t.me/TRIUMPH_DREAMTEAM</span>{% endif %}
+            {% if team.contact %}<a href="{{ team.contact.url }}">{{ team.contact.label }}</a>{% else %}<span>https://t.me/TRIUMPH_DREAMTEAM</span>{% endif %}
             <p>GitVerse</p>
             {% if team.repository %}<a href="{{ team.repository }}">Репозиторий команды</a>{% else %}<span>Ссылка пока не добавлена</span>{% endif %}
           </div>

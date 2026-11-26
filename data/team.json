@@ -53,6 +53,10 @@
       "skills": ["design", "frontend"]
     }
   ],
-  "contact": null,
+  "contact": {
+  "label": "ТРИУМФ",
+  "url": "https://t.me/TRIUMPH_DREAMTEAM"
+  },
   "repository": ""
 }
+
