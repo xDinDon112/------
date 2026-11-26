@@ -169,8 +169,8 @@
           <p>Команда из пяти человек.<br>Идеи, технологии и общий результат.</p>
           <div id="contact-links" class="contact-links">
             <h2>Связаться с командой</h2>
-            <p>Telegram команды</p>
-            {% if team.contact %}<a href="{{ team.contact.url }}">{{ team.contact.label }}</a>{% else %}<span>Ссылка пока не добавлена</span>{% endif %}
+            <p>Telegram канал команды</p>
+            {% if team.contact %}<a href="{{ team.contact.url }}">{{ team.contact.label }}</a>{% else %}<span>https://t.me/TRIUMPH_DREAMTEAM</span>{% endif %}
             <p>GitVerse</p>
             {% if team.repository %}<a href="{{ team.repository }}">Репозиторий команды</a>{% else %}<span>Ссылка пока не добавлена</span>{% endif %}
           </div>
@@ -185,7 +185,6 @@
         </nav>
         <nav class="footer-links" aria-label="Материалы команды">
           <h2>Материалы</h2>
-          <a href="#projects">Проекты</a>
           {% if team.repository %}<a href="{{ team.repository }}">GitVerse</a>{% else %}<a href="#contact-links">GitVerse</a>{% endif %}
           <a href="#contact-links">Контакты</a>
           <a href="{{ team.event_url }}">О хакатоне</a>
