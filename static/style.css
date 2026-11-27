@@ -128,17 +128,6 @@ picture { display: block; }
   margin-top: 72px;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: -30px;
-  right: -23px;
-  z-index: -1;
-  width: min(540px, 46vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-}
-
 body { overflow-x: clip; }
 
 .hero-row {
