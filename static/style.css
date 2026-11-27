@@ -137,7 +137,6 @@ picture { display: block; }
   width: min(540px, 46vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: var(--blue-light);
 }
 
 body { overflow-x: clip; }
