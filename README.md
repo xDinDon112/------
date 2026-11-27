@@ -41,7 +41,7 @@ docker compose up --build
 ## Файлы проекта
 Ответственный	Что редактировать
 Владислав Ни	README.md, manage.py — запуск, настройки и редактирование
-Владислав Винник	team/views.py, data/team.json — данные участников и фильтр
+Владислав Винник	team/views.py, data/team.json — тимлид, данные участников
 Илья Сазанаков	data/projects.json, team/tests.py — проекты и проверки
 Алина Евсеева и Тимофей Пушилин	templates/, static/ — HTML, CSS, изображения и шрифт
 
