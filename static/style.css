@@ -295,15 +295,13 @@ body { overflow-x: clip; }
   font-weight: 650;
 }
 
-.member-info p,
-.member-contact {
+.member-info p {
   color: var(--muted);
   font-size: 13px;
   overflow-wrap: anywhere;
 }
 
 .member-info .member-skills { margin-top: 8px; font-size: 12px; }
-.member-contact { display: inline-block; margin-top: 6px; color: var(--blue-dark); }
 
 .filter-result { margin-top: 16px; color: var(--muted); font-size: 14px; }
 .filter-result a { color: var(--blue-dark); font-weight: 650; }
@@ -582,7 +580,6 @@ body { overflow-x: clip; }
   .member-info h3 { margin: 0 0 2px; font-size: 16px; }
   .member-info p { font-size: 12px; }
   .member-info .member-skills { margin-top: 2px; }
-  .member-contact { font-size: 12px; }
 
   .skills-grid, .projects-grid { margin-top: 27px; }
   .skill-card { min-height: 112px; padding: 17px; border-radius: 14px; }

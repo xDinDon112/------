@@ -93,7 +93,6 @@
             {% if member.group %}<p>{{ member.group }}</p>{% endif %}
             {% if member.skill_labels %}<p class="member-skills">{{ member.skill_labels|join:" · " }}</p>{% endif %}
             {% with person_contact=member.contact|default:team.contact %}
-            {% if person_contact %}<a class="member-contact" href="{{ person_contact.url }}">{{ person_contact.label }}</a>{% endif %}
             {% endwith %}
           </div>
         </li>
