@@ -6,15 +6,15 @@
 
 В терминале на Mac и Linux запустите из папки с manage.py.
 
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
+python3 -m venv .venv // 
+.venv/bin/python -m pip install -r requirements.txt // 
 .venv/bin/python manage.py runserver 127.0.0.1:8001
 
 На Windows откройте PowerShell в папке с manage.py.
 
-py -3 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe manage.py runserver 127.0.0.1:8001
+py -3 -m venv .venv // 
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt // 
+.\.venv\Scripts\python.exe manage.py runserver 127.0.0.1:8001 // 
 
 Откройте локальный сайт. Порт 8001 выбран для отдельного запуска рядом с черновиком «Вектор». Сервер останавливается сочетанием Ctrl+C в терминале. Для первого скачивания зависимостей нужен интернет.
 
@@ -24,7 +24,7 @@ py -3 -m venv .venv
 ## Сборка и запуск через Dockerfile
 Выполните две команды по порядку.
 
-docker build -t triumf .
+docker build -t triumf . // 
 docker run --rm -p 127.0.0.1:8080:8000 triumf
 
 Первая команда собирает образ triumf из файлов проекта. Вторая запускает сайт. Откройте локальный «Триумф» в браузере. Для остановки нажмите Ctrl+C в терминале с запущенным сайтом.
@@ -32,16 +32,16 @@ docker run --rm -p 127.0.0.1:8080:8000 triumf
 ## Сборка и запуск одной командой через Docker Compose
 Остановите сайт, если он уже запущен предыдущим способом. Из той же папки выполните:
 
-docker compose up --build
+docker compose up --build 
 
 Откройте локальный «Триумф». После проверки нажмите Ctrl+C. Команда docker compose down удалит остановленный контейнер и служебную сеть проекта.
 
 Оба способа открывают Django-сайт на компьютере проверяющего. Адрес привязан к 127.0.0.1. В браузере можно проверить главную страницу, карточки команды, проекты, стили и изображения.
 
 ## Файлы проекта
-Владислав Ни	README.md, manage.py — запуск, настройки и редактирование / 
-Владислав Винник	team/views.py, data/team.json — тимлид, данные участников / 
-Илья Сазанаков	data/projects.json, team/tests.py — проекты и проверки / 
+Владислав Ни	README.md, manage.py — запуск, настройки и редактирование // 
+Владислав Винник	team/views.py, data/team.json — тимлид, данные участников // 
+Илья Сазанаков	data/projects.json, team/tests.py — проекты и проверки // 
 Алина Евсеева и Тимофей Пушилин	templates/, static/ — HTML, CSS, изображения и шрифт
 
 При запросе главной страницы Django читает два файла JSON. При запросе /?skill=python он выбирает подходящих участников. HTML собирается из шаблона, а CSS, изображения и Inter загружаются из проекта. База данных для этого сайта не нужна.
@@ -53,7 +53,7 @@ docker compose up --build
 В итоговом README добавьте ФИО, группы, ссылки на личные профили в GitVerse, реальный вклад каждого, скриншоты и ссылку на видео. Стартовый README дополняется по приложению 1 отборочного задания.
 
 ## Проверка
-.venv/bin/python manage.py check
+.venv/bin/python manage.py check // 
 .venv/bin/python manage.py test team
 
 На Windows используйте путь к Python из команды запуска выше. В браузере проверьте меню на телефоне, фильтр по Python, сброс фильтра, раскрытие «Подробнее» и открытие согласованных ссылок. Публичное размещение требует отдельной конфигурации Django. Команда runserver служит для работы на своём компьютере.
